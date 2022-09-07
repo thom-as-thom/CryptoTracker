@@ -2,9 +2,20 @@ import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import TinyImage from '../tinyImage/tinyImage'
 
+
 // todos los valores estan hardcoded, pero deberían de venir por props
 
-function Cryptoview(props:any) {
+type crypto = {
+  name: string;
+  symbol: string;
+  price_usd: number;
+  percent_change_usd_last_24_hours: number;
+  id: string;
+}
+
+function Cryptoview(props:crypto) {
+
+  
   return (
     <View style={styles.cryptoView}>
       <View style={styles.cryptoName}>
@@ -14,16 +25,16 @@ function Cryptoview(props:any) {
               {props.name}
             </Text>
             <Text>
-              {props.abreviation}
+              {props.symbol}
             </Text>
           </View>
       </View>
       <View style={styles.cryptoStatus}>
         <Text style={styles.bold}>
-          ${props.price}
+          ${props.price_usd}
         </Text>
-        <Text style= { props.change > 0 ? styles.greenChange : styles.redChange }>
-          {props.change}
+        <Text style= { props.percent_change_usd_last_24_hours > 0 ? styles.greenChange : styles.redChange }>
+          {props.percent_change_usd_last_24_hours}
         </Text>
       </View>
         
