@@ -1,7 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
-function Button(props:any) {
+type prop = {
+  text: string;
+}
+
+function Button(props:prop) {
   return (
     <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>
@@ -17,6 +21,7 @@ const styles = StyleSheet.create({
   button:{
     alignSelf: "center",
     margin: 42,
+    flex: 1
     
   },
   buttonText:{
