@@ -15,7 +15,7 @@ function ListContainer() {
       }
     
       let cryptos: crypto[] = [
-     
+        {name:"Bitcoin", symbol: "BTC", price_usd: 19778.51, percent_change_usd_last_24_hours:-0.64, id:"1"}, {name:"Ethereum", symbol: "ETH", price_usd: 7591.48, percent_change_usd_last_24_hours:+1.64, id:"2"}, {name:"Litecoin", symbol: "LTC", price_usd: 654.25, percent_change_usd_last_24_hours:-6.64, id:"3"},
       ]
   return (
     <SafeAreaView>
