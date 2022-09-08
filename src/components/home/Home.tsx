@@ -1,12 +1,11 @@
-import React from 'react'
-import { SafeAreaView } from 'react-native'
+import React from 'react';
+import {SafeAreaView} from 'react-native';
 import ListContainer from '../listContainer/listContainer';
 
-const Home = () =>(
-    <SafeAreaView>
-        <ListContainer/>
-    </SafeAreaView>
-  )
-  
-export default Home
+const Home = () => (
+  <SafeAreaView>
+    <ListContainer />
+  </SafeAreaView>
+);
 
+export default Home;

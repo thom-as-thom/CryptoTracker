@@ -1,30 +1,15 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import React from 'react';
+
+import {Title, Touchable} from './styles';
 
 type prop = {
   text: string;
-}
+};
 
-const Button = (props:prop) => (
+const Button = (props: prop) => (
+  <Touchable>
+    <Title> {props.text} </Title>
+  </Touchable>
+);
 
-    <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>
-            {props.text}
-        </Text>
-    </TouchableOpacity>
-)
-
-export default Button
-
-const styles = StyleSheet.create({
-  button:{
-    alignSelf: "center",
-    margin: 42,
-    flex: 1
-    
-  },
-  buttonText:{
-    color: "#38577f",
-    fontSize: 17,
-  }
-})
+export default Button;
