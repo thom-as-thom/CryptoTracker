@@ -1,14 +1,14 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
 
-const TinyImage = () =>(
+const TinyImage = (props:any) =>(
     <Image 
         style={styles.tinyLogo}
         source={{
-          uri: 'https://picsum.photos/200' }}
+          uri: props.imgUrl }}
           />
   )
-  
+
 export default TinyImage
 
 const styles = StyleSheet.create ({

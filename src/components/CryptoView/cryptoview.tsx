@@ -8,12 +8,13 @@ type crypto = {
   price_usd: number;
   percent_change_usd_last_24_hours: number;
   id: string;
+  imgUrl:string;
 }
 
 const Cryptoview = (props:crypto) => (
     <View style={styles.cryptoView}>
       <View style={styles.cryptoName}>
-        <TinyImage/>
+        <TinyImage imgUrl={props.imgUrl} />
           <View style={styles.cryptoText}>
             <Text style={styles.bold}>
               {props.name}

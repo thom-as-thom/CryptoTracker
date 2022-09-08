@@ -8,7 +8,7 @@ const Header = () => (
           <Text style={styles.headerText}>
             CryptoTracker Pro
           </Text>
-          <TinyImage/>
+          <TinyImage imgUrl={"https://firebasestorage.googleapis.com/v0/b/nocountry-c6-g21.appspot.com/o/brand%20image%206.jpg?alt=media&token=192deaea-ca2e-49b1-983d-0675a48d3c1a"}/>
     </View>
   )
 
