@@ -2,9 +2,6 @@ import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import TinyImage from '../tinyImage/tinyImage'
 
-
-// todos los valores estan hardcoded, pero deberían de venir por props
-
 type crypto = {
   name: string;
   symbol: string;
@@ -13,10 +10,7 @@ type crypto = {
   id: string;
 }
 
-function Cryptoview(props:crypto) {
-
-  
-  return (
+const Cryptoview = (props:crypto) => (
     <View style={styles.cryptoView}>
       <View style={styles.cryptoName}>
         <TinyImage/>
@@ -37,10 +31,9 @@ function Cryptoview(props:crypto) {
           {props.percent_change_usd_last_24_hours}
         </Text>
       </View>
-        
     </View>
   )
-}
+
 
 export default Cryptoview
 
@@ -83,5 +76,4 @@ const styles = StyleSheet.create ({
   redChange: {
     color: "red"
   }
-
 })

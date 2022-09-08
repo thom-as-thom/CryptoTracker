@@ -2,8 +2,8 @@ import React from 'react'
 import {StyleSheet, Text, View } from 'react-native'
 import TinyImage from '../tinyImage/tinyImage'
 
-function Header() {
-  return (
+const Header = () => (
+
     <View style={styles.header}>
           <Text style={styles.headerText}>
             CryptoTracker Pro
@@ -11,7 +11,6 @@ function Header() {
           <TinyImage/>
     </View>
   )
-}
 
 export default Header
 

@@ -5,15 +5,14 @@ type prop = {
   text: string;
 }
 
-function Button(props:prop) {
-  return (
+const Button = (props:prop) => (
+
     <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>
             {props.text}
         </Text>
     </TouchableOpacity>
-  )
-}
+)
 
 export default Button
 
