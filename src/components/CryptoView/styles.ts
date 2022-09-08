@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import theme from '../../theme/theme';
 
 export const CryptoContainer = styled.View`
   justify-content: space-between;
@@ -6,7 +7,7 @@ export const CryptoContainer = styled.View`
   margin: 0px 28px;
   padding: 28px 0px;
   align-items: center;
-  border-bottom-color: #dedede;
+  border-bottom-color: ${theme.colors.grey};
   border-style: solid;
   border-bottom-width: 1px;
 `;
@@ -22,7 +23,7 @@ export const CryptoName = styled.View`
 export const Bold = styled.Text`
   font-weight: bold;
   font-size: 18px;
-  color: black;
+  color: ${theme.colors.black};
 `;
 export const StatsView = styled.View`
   align-items: flex-end;

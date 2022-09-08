@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text} from 'react-native';
 import TinyImage from '../tinyImage/tinyImage';
+import theme from '../../theme/theme';
 import {
   CryptoContainer,
   NameView,
@@ -32,7 +33,9 @@ const Cryptoview = (props: crypto) => (
       <Bold> ${props.price_usd} </Bold>
       <Change
         inputColor={
-          props.percent_change_usd_last_24_hours > 0 ? 'green' : 'red'
+          props.percent_change_usd_last_24_hours > 0
+            ? theme.colors.green
+            : theme.colors.red
         }>
         {props.percent_change_usd_last_24_hours}
       </Change>

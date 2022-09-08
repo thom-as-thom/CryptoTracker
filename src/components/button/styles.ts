@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import theme from '../../theme/theme';
 
 export const Touchable = styled.TouchableOpacity`
   align-self: center;
@@ -6,5 +7,5 @@ export const Touchable = styled.TouchableOpacity`
 `;
 export const Title = styled.Text`
   font-size: 17px;
-  color: #38577f;
+  color: ${theme.colors.blue};
 `;
