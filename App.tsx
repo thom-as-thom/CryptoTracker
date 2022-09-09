@@ -1,11 +1,9 @@
-import React from 'react'
-import {Provider} from 'react-redux'
-import Home from './src/components/home/Home'
+import React from 'react';
+import {Provider} from 'react-redux';
+import Home from './src/components/Home';
 
-function App() {
-  return (
-    <Home/>
-  )
-}
+const App = () => {
+  return <Home />;
+};
 
-export default App
+export default App;
