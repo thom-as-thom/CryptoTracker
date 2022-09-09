@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-import ListContainer from '../listContainer/listContainer';
+import ListContainer from '../ListContainer';
 
-const Home = () => (
+const Home = (): JSX.Element => (
   <SafeAreaView>
     <ListContainer />
   </SafeAreaView>

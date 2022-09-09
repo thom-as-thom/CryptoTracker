@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import {Container, HeaderText} from './styles';
-import TinyImage from '../tinyImage/tinyImage';
+import TinyImage from '../TinyImage';
 
-const Header = () => (
+const Header = (): ReactElement => (
   <Container>
     <HeaderText>CryptoTracker Pro</HeaderText>
     <TinyImage
