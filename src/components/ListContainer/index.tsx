@@ -17,8 +17,6 @@ const ListContainer = (): ReactElement => {
         setCryptos(ResJson.data);
       } catch (err) {
         console.log(err);
-      } finally {
-        console.log(Cryptos);
       }
     };
   }, [Cryptos]);
