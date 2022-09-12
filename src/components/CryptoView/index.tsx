@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import {Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
@@ -14,7 +14,7 @@ import {
   ChangePercentage,
 } from './styles';
 
-const Cryptoview = ({coin}: {coin: CoinData}): ReactElement => (
+const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => (
   <CryptoContainer>
     <NameView>
       <TinyImage imgUrl={coin.imgUrl} />
