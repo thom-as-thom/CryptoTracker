@@ -7,7 +7,7 @@ export type CoinData = {
   imgUrl: string;
   data: object;
   metrics: object;
-  market_data: object;
+  market_data: number[];
 };
 
 export type Props = {
