@@ -17,17 +17,19 @@ import {
 const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => (
   <CryptoContainer>
     <NameView>
-      <TinyImage imgUrl={coin.imgUrl} />
+      <TinyImage
+        imgUrl={`https://messari.io/asset-images/${coin.id}/128.png`}
+      />
       <CryptoName>
         <Bold> {coin.name} </Bold>
         <Text> {coin.symbol} </Text>
       </CryptoName>
     </NameView>
     <StatsView>
-      <Bold> ${coin.price_usd} </Bold>
+      <Bold> ${coin.metrics.market_data.price_usd.toFixed(2)} </Bold>
 
       <Change>
-        {coin.percent_change_usd_last_24_hours > 0 ? (
+        {coin.metrics.market_data.percent_change_usd_last_24_hours > 0 ? (
           <MaterialIcon name="call-made" size={18} color={theme.colors.green} />
         ) : (
           <MaterialIcon
@@ -39,11 +41,16 @@ const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => (
 
         <ChangePercentage
           inputColor={
-            coin.percent_change_usd_last_24_hours > 0
+            coin.metrics.market_data.percent_change_usd_last_24_hours > 0
               ? theme.colors.green
               : theme.colors.red
           }>
-          {Math.abs(coin.percent_change_usd_last_24_hours)}%
+          {Math.abs(
+            coin.metrics.market_data.percent_change_usd_last_24_hours.toFixed(
+              2,
+            ),
+          )}
+          %
         </ChangePercentage>
       </Change>
     </StatsView>
