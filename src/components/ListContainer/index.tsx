@@ -11,7 +11,7 @@ const ListContainer = (): JSX.Element => {
   const navigation = useNavigation();
   const renderItem = ({item}) => <Cryptoview coin={item} />;
   const onClick = () => {
-    navigation.navigate(AddCurrency);
+    navigation.navigate('AddCurrency');
   };
   return (
     <SafeAreaView>
