@@ -1,8 +1,8 @@
-import React, {FC, ReactElement} from 'react';
+import React, {FC} from 'react';
 import {TinyLogo} from './styles';
 import {Props} from '../../types';
 
-const TinyImage: FC<Props> = ({imgUrl}): ReactElement => (
+const TinyImage: FC<Props> = ({imgUrl}) => (
   <TinyLogo
     source={{
       uri: imgUrl,
