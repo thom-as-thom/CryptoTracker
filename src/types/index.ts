@@ -21,4 +21,7 @@ export type CoinData = {
 export type Props = {
   text?: string;
   imgUrl?: string;
+  onClick?: Function;
+  type?: 'navigation' | 'regular';
+  disabled?: boolean;
 };
