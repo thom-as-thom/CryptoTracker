@@ -3,8 +3,8 @@ import theme from '../../theme';
 
 export const Input = styled.TextInput`
   font-size: 17px;
-  border-color: ${theme.colors.blue};
-  border-width: 0.7px;
+  border-color: ${props => props.borderColor};
+  border-width: 2px;
   padding: 14px;
   margin-horizontal: 7.5%;
   margin-vertical: -10px;
