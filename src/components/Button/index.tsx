@@ -1,12 +1,21 @@
-import React, {FC, ReactElement} from 'react';
+import React, {FC} from 'react';
 import {Props} from '../../types';
+import theme from '../../theme';
 
-import {Title, Touchable} from './styles';
+import {RegularTitle, Title, Touchable, YellowTouchable} from './styles';
 
-const Button: FC<Props> = ({text}): ReactElement => (
-  <Touchable>
-    <Title> {text} </Title>
-  </Touchable>
-);
+const Button: FC<Props> = ({text, onClick, type, disabled}) => {
+  return type === 'navigation' ? (
+    <Touchable onPress={onClick}>
+      <Title> {text} </Title>
+    </Touchable>
+  ) : (
+    <YellowTouchable onPress={onClick}>
+      <RegularTitle color={disabled ? theme.colors.grey : theme.colors.blue}>
+        {text}
+      </RegularTitle>
+    </YellowTouchable>
+  );
+};
 
 export default Button;
