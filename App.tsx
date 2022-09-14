@@ -13,8 +13,8 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="AddCurrency" component={AddCurrency} />
           <Stack.Screen name="home" component={Home} />
+          <Stack.Screen name="AddCurrency" component={AddCurrency} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
