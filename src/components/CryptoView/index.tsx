@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import {Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
@@ -14,22 +14,22 @@ import {
   ChangePercentage,
 } from './styles';
 
-const Cryptoview = ({coin}: {coin: CoinData}): ReactElement => (
+const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => (
   <CryptoContainer>
     <NameView>
       <TinyImage
-        imgUrl={`https://messari.io/asset-images/${coin.id}/128.png`}
+        imgUrl={`https://messari.io/asset-images/${coin.Asset.id}/128.png`}
       />
       <CryptoName>
-        <Bold> {coin.name} </Bold>
-        <Text> {coin.symbol} </Text>
+        <Bold> {coin.Asset.name} </Bold>
+        <Text> {coin.Asset.symbol} </Text>
       </CryptoName>
     </NameView>
     <StatsView>
-      <Bold> ${coin.metrics.market_data.price_usd.toFixed(2)} </Bold>
+      <Bold> ${coin.market_data.price_usd.toFixed(2)} </Bold>
 
       <Change>
-        {coin.metrics.market_data.percent_change_usd_last_24_hours > 0 ? (
+        {coin.market_data.percent_change_usd_last_24_hours > 0 ? (
           <MaterialIcon name="call-made" size={18} color={theme.colors.green} />
         ) : (
           <MaterialIcon
@@ -41,14 +41,12 @@ const Cryptoview = ({coin}: {coin: CoinData}): ReactElement => (
 
         <ChangePercentage
           inputColor={
-            coin.metrics.market_data.percent_change_usd_last_24_hours > 0
+            coin.market_data.percent_change_usd_last_24_hours > 0
               ? theme.colors.green
               : theme.colors.red
           }>
           {Math.abs(
-            coin.metrics.market_data.percent_change_usd_last_24_hours.toFixed(
-              2,
-            ),
+            coin.market_data.percent_change_usd_last_24_hours.toFixed(2),
           )}
           %
         </ChangePercentage>
