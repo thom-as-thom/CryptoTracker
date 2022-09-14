@@ -10,7 +10,7 @@ const Button: FC<Props> = ({text, onClick, type, disabled}) => {
       <Title> {text} </Title>
     </Touchable>
   ) : (
-    <YellowTouchable onPress={onClick}>
+    <YellowTouchable onPress={onClick} disabled={disabled}>
       <RegularTitle color={disabled ? theme.colors.grey : theme.colors.blue}>
         {text}
       </RegularTitle>
