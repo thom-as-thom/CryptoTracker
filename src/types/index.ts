@@ -20,10 +20,4 @@ export type CoinData = {
   Asset: Asset;
 };
 
-export type Props = {
-  text?: string;
-  imgUrl?: string;
-  onClick?: Function;
-  type?: 'navigation' | 'regular';
-  disabled?: boolean;
-};
+export type deleteCrypto = Function;

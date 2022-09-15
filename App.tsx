@@ -5,20 +5,19 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {AddCurrency} from './src/screens/AddCrypto';
 import store from './src/store';
+import {AppRoutes} from './src/navigation/routes';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="home" component={Home} />
-          <Stack.Screen name="AddCurrency" component={AddCurrency} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name={AppRoutes.ADD_CRYPTO} component={AddCurrency} />
+        <Stack.Screen name={AppRoutes.HOME} component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  </Provider>
+);
 
 export default App;

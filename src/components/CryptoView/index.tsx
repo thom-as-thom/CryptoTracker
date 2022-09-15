@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, Text} from 'react-native';
+import {Alert, Pressable, Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -15,18 +15,32 @@ import {
 } from './styles';
 import {deleteCrypto} from '../../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
+import {IRootState} from '../../store';
 
-const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
+const Cryptoview = (props): JSX.Element => {
+  const coin: CoinData = props.coin;
   const dispatch = useDispatch();
   const Cryptos: CoinData = useSelector(
-    state => state.addedCryptos.addedCryptos,
+    (state: IRootState) => state.addedCryptos.addedCryptos,
   );
-  const DeleteCrypto = () => {
-    dispatch(deleteCrypto(coin.Asset.id, Cryptos));
+  const deleteCoin = () => {
+    Alert.alert(
+      'Deleting currency',
+      `are you sure you want to delete ${coin.Asset.name}?`,
+      [
+        {
+          text: 'Cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => dispatch(deleteCrypto(coin.Asset.id, Cryptos)),
+        },
+      ],
+    );
   };
 
   return (
-    <Pressable onPress={DeleteCrypto}>
+    <Pressable onPress={deleteCoin}>
       <CryptoContainer>
         <NameView>
           <TinyImage
@@ -39,7 +53,6 @@ const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
         </NameView>
         <StatsView>
           <Bold> ${coin.market_data.price_usd.toFixed(2)} </Bold>
-
           <Change>
             {coin.market_data.percent_change_usd_last_24_hours > 0 ? (
               <MaterialIcon
@@ -54,7 +67,6 @@ const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
                 color={theme.colors.red}
               />
             )}
-
             <ChangePercentage
               inputColor={
                 coin.market_data.percent_change_usd_last_24_hours > 0
