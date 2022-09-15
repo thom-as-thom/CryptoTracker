@@ -8,17 +8,15 @@ import store from './src/store';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="home" component={Home} />
-          <Stack.Screen name="AddCurrency" component={AddCurrency} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="ADD_CRYPTO" component={AddCurrency} />
+        <Stack.Screen name="HOME" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  </Provider>
+);
 
 export default App;

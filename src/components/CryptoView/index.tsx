@@ -21,11 +21,12 @@ const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
   const Cryptos: CoinData = useSelector(
     state => state.addedCryptos.addedCryptos,
   );
-  const DeleteCrypto = () => {
+  const deleteCoin = () => {
     dispatch(deleteCrypto(coin.Asset.id, Cryptos));
   };
+
   return (
-    <Pressable onPress={DeleteCrypto}>
+    <Pressable onPress={deleteCoin}>
       <CryptoContainer>
         <NameView>
           <TinyImage
@@ -38,7 +39,6 @@ const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
         </NameView>
         <StatsView>
           <Bold> ${coin.market_data.price_usd.toFixed(2)} </Bold>
-
           <Change>
             {coin.market_data.percent_change_usd_last_24_hours > 0 ? (
               <MaterialIcon
@@ -53,7 +53,6 @@ const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
                 color={theme.colors.red}
               />
             )}
-
             <ChangePercentage
               inputColor={
                 coin.market_data.percent_change_usd_last_24_hours > 0

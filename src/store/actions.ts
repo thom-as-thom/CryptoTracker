@@ -28,7 +28,6 @@ export const addCrypto = (Key, addedCryptos) => {
 
 export const deleteCrypto: Function = (Key, Cryptos) => {
   const NewList = Cryptos.filter(item => item.Asset.id !== Key);
-  console.log(Cryptos);
   return dispatch => {
     dispatch({type: DELETE_CRYPTO, payload: NewList});
   };

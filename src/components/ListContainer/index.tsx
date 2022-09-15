@@ -5,14 +5,16 @@ import {useSelector} from 'react-redux';
 import Button from '../Button';
 import Cryptoview from '../CryptoView';
 import Header from '../Header';
+import {AppRoutes} from '../../navigation/routes';
 
 const ListContainer = (): JSX.Element => {
   const Cryptos = useSelector(state => state.addedCryptos.addedCryptos);
   const navigation = useNavigation();
   const renderItem = ({item}) => <Cryptoview coin={item} />;
   const onClick = () => {
-    navigation.navigate('AddCurrency');
+    navigation.navigate(AppRoutes.ADD_CRYPTO);
   };
+
   return (
     <SafeAreaView>
       <FlatList

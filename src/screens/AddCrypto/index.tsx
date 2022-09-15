@@ -6,25 +6,27 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {addCrypto} from '../../store/actions';
 import theme from '../../theme';
+import {AppRoutes} from '../../navigation/routes';
 
 export const AddCurrency = (): JSX.Element => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const {addedCryptos} = useSelector(state => state.addedCryptos);
-  const [Search, setSearch] = useState('');
-  const [Focus, setFocus] = useState(false);
+  const [search, setSearch] = useState('');
+  const [focus, setFocus] = useState(false);
   const onNavigation = () => {
-    navigation.navigate('home');
+    navigation.navigate(AppRoutes.HOME);
   };
   const onSearch = () => {
     dispatch(addCrypto(Search, addedCryptos));
     setFocus(false);
     setSearch('');
-    navigation.navigate('home');
+    navigation.navigate(AppRoutes.HOME);
   };
   const handleFocus = () => {
-    setFocus(!Focus);
+    setFocus(!focus);
   };
+
   return (
     <ScreenView>
       <Navigation>
@@ -42,13 +44,13 @@ export const AddCurrency = (): JSX.Element => {
           autoCapitalize="characters"
           onFocus={handleFocus}
           onblur={handleFocus}
-          borderColor={Focus ? theme.colors.yellow : theme.colors.grey}
-          value={Search}
+          borderColor={focus ? theme.colors.yellow : theme.colors.grey}
+          value={search}
         />
         <Button
           text="Add"
           type="regular"
-          disabled={Search.length === 0}
+          disabled={search.length === 0}
           onClick={onSearch}
         />
       </Form>
