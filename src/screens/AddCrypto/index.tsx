@@ -1,15 +1,12 @@
 import React from 'react';
 import Button from '../../components/Button';
-import {useNavigation} from '@react-navigation/native';
 import {Form, Input, Navigation, ScreenView, Title} from './styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {addCrypto} from '../../store/actions';
 import theme from '../../theme';
-import {AppRoutes} from '../../navigation/routes';
 
-export const AddCurrency = (): JSX.Element => {
-  const navigation = useNavigation();
+export const AddCurrency = ({navigation}): JSX.Element => {
   const dispatch = useDispatch();
   const {addedCryptos} = useSelector(state => state.addedCryptos);
   const [search, setSearch] = useState('');

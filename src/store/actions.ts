@@ -1,3 +1,5 @@
+import {Alert} from 'react-native';
+
 export const ADD_CRYPTO = 'ADD_CRYPTO';
 export const DELETE_CRYPTO = 'DELETE_CRYPTO';
 
@@ -13,12 +15,12 @@ export const addCrypto = (Key, addedCryptos) => {
           item => item.Asset.id === ResJson.data.Asset.id,
         );
         if (Found.length > 0) {
-          alert(`${Found[0].Asset.name} is already in your list.`);
+          Alert.alert(`${Found[0].Asset.name} is already in your list.`);
         } else {
           dispatch({type: ADD_CRYPTO, payload: ResJson.data});
         }
       } else {
-        alert(`We cant find ${Key}, are you sure it's spelled this way?`);
+        Alert.alert(`We cant find ${Key}, are you sure it's spelled this way?`);
       }
     } catch (err) {
       console.log(err);
