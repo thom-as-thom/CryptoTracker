@@ -1,4 +1,4 @@
-import {ADD_CRYPTO, DELETE_CRYPTO} from './actions';
+import {ADD_CRYPTO, DELETE_CRYPTO, UPDATE_CURRENCIES} from './actions';
 
 const initialState = {
   addedCryptos: [],
@@ -11,6 +11,11 @@ export default (state = initialState, action) => {
       addedCryptos: [...state.addedCryptos, action.payload],
     };
   } else if (action.type === DELETE_CRYPTO) {
+    return {
+      ...state,
+      addedCryptos: action.payload,
+    };
+  } else if (action.type === UPDATE_CURRENCIES) {
     return {
       ...state,
       addedCryptos: action.payload,

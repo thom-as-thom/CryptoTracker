@@ -27,5 +27,3 @@ export type Props = {
   type?: 'navigation' | 'regular';
   disabled?: boolean;
 };
-
-export type deleteCrypto = Function;

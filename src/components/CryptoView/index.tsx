@@ -13,7 +13,7 @@ import {
   Change,
   ChangePercentage,
 } from './styles';
-import {deleteCrypto} from '../../store/actions';
+import {deleteCrypto, updateCurrencies} from '../../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 
 const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
@@ -24,6 +24,7 @@ const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
   const DeleteCrypto = () => {
     dispatch(deleteCrypto(coin.Asset.id, Cryptos));
   };
+
   return (
     <Pressable onPress={DeleteCrypto}>
       <CryptoContainer>
