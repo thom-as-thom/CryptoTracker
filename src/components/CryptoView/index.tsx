@@ -16,7 +16,8 @@ import {
 import {deleteCrypto} from '../../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 
-const Cryptoview: FC<CoinData> = coin => {
+const Cryptoview: FC = props => {
+  const coin: CoinData = props.coin;
   const dispatch = useDispatch();
   const Cryptos: CoinData = useSelector(
     state => state.addedCryptos.addedCryptos,
@@ -24,7 +25,6 @@ const Cryptoview: FC<CoinData> = coin => {
   const deleteCoin = () => {
     dispatch(deleteCrypto(coin.Asset.id, Cryptos));
   };
-
   return (
     <Pressable onPress={deleteCoin}>
       <CryptoContainer>

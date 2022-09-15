@@ -18,7 +18,7 @@ export const AddCurrency = (): JSX.Element => {
     navigation.navigate(AppRoutes.HOME);
   };
   const onSearch = () => {
-    dispatch(addCrypto(Search, addedCryptos));
+    dispatch(addCrypto(search, addedCryptos));
     setFocus(false);
     setSearch('');
     navigation.navigate(AppRoutes.HOME);
