@@ -1,6 +1,10 @@
 import {ADD_CRYPTO, DELETE_CRYPTO} from './actions';
 
-const initialState = {
+type state = {
+  addedCryptos: any;
+};
+
+const initialState: state = {
   addedCryptos: [],
 };
 
