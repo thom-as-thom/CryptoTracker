@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Pressable, Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
@@ -16,7 +16,7 @@ import {
 import {deleteCrypto} from '../../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 
-const Cryptoview = ({coin}: {coin: CoinData}): JSX.Element => {
+const Cryptoview: FC<CoinData> = coin => {
   const dispatch = useDispatch();
   const Cryptos: CoinData = useSelector(
     state => state.addedCryptos.addedCryptos,
