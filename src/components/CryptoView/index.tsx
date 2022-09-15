@@ -13,7 +13,7 @@ import {
   Change,
   ChangePercentage,
 } from './styles';
-import {deleteCrypto, updateCurrencies} from '../../store/actions';
+import {deleteCrypto} from '../../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import {IRootState} from '../../store';
 

@@ -48,18 +48,16 @@ export const updateCurrencies: Function = Cryptos => {
   const updateList = async currencies => {
     const updatedCurrencies = await getUpdatedCurrencies();
     currencies.forEach(elem => updateData(elem, updatedCurrencies));
+    console.log('asd');
   };
 
   const updateData = async (object, array) => {
-    // console.log(array);
     const newObject = array.filter(item => item.id === object.Asset.id);
-
     object.market_data = newObject[0].metrics.market_data;
   };
 
+  updateList(Cryptos);
   return dispatch => {
-    updateList(Cryptos);
-    //console.log(Cryptos[0].market_data.price_usd);
     dispatch({type: UPDATE_CURRENCIES, payload: Cryptos});
   };
 };
