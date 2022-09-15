@@ -15,7 +15,7 @@ const ListContainer = (): JSX.Element => {
   const navigation = useNavigation();
   const renderItem = ({item}: {item: CoinData}) => <Cryptoview coin={item} />;
   const onClick = () => {
-    navigation.navigate(AppRoutes.ADD_CRYPTO);
+    navigation.navigate('ADD_CRYPTO');
   };
 
   return (
