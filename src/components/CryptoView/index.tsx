@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Pressable, Text} from 'react-native';
+import {Alert, Pressable, Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -23,7 +23,19 @@ const Cryptoview: FC = props => {
     state => state.addedCryptos.addedCryptos,
   );
   const deleteCoin = () => {
-    dispatch(deleteCrypto(coin.Asset.id, Cryptos));
+    Alert.alert(
+      'Deleting currency',
+      `are you sure you want to delete ${coin.Asset.name}?`,
+      [
+        {
+          text: 'Cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => dispatch(deleteCrypto(coin.Asset.id, Cryptos)),
+        },
+      ],
+    );
   };
   return (
     <Pressable onPress={deleteCoin}>

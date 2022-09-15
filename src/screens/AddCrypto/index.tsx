@@ -15,13 +15,13 @@ export const AddCurrency = (): JSX.Element => {
   const [search, setSearch] = useState('');
   const [focus, setFocus] = useState(false);
   const onNavigation = () => {
-    navigation.navigate(AppRoutes.HOME);
+    navigation.navigate('HOME');
   };
   const onSearch = () => {
     dispatch(addCrypto(search, addedCryptos));
     setFocus(false);
     setSearch('');
-    navigation.navigate(AppRoutes.HOME);
+    navigation.navigate('HOME');
   };
   const handleFocus = () => {
     setFocus(!focus);
