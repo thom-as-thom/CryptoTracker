@@ -5,10 +5,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {addCrypto} from '../../store/actions';
 import theme from '../../theme';
+import {IRootState} from '../../store';
 
 export const AddCurrency = ({navigation}): JSX.Element => {
   const dispatch = useDispatch();
-  const {addedCryptos} = useSelector(state => state.addedCryptos);
+  const {addedCryptos} = useSelector((state: IRootState) => state.addedCryptos);
   const [search, setSearch] = useState('');
   const [focus, setFocus] = useState(false);
   const onNavigation = () => {

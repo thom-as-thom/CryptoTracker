@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {Alert, Pressable, Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
@@ -15,12 +15,13 @@ import {
 } from './styles';
 import {deleteCrypto} from '../../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
+import {IRootState} from '../../store';
 
-const Cryptoview: FC = props => {
+const Cryptoview = (props): JSX.Element => {
   const coin: CoinData = props.coin;
   const dispatch = useDispatch();
   const Cryptos: CoinData = useSelector(
-    state => state.addedCryptos.addedCryptos,
+    (state: IRootState) => state.addedCryptos.addedCryptos,
   );
   const deleteCoin = () => {
     Alert.alert(

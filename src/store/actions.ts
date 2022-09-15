@@ -3,7 +3,7 @@ import {Alert} from 'react-native';
 export const ADD_CRYPTO = 'ADD_CRYPTO';
 export const DELETE_CRYPTO = 'DELETE_CRYPTO';
 
-export const addCrypto = (Key, addedCryptos) => {
+export const addCrypto: Function = (Key, addedCryptos) => {
   return async dispatch => {
     try {
       const resp = await fetch(
