@@ -16,9 +16,18 @@ export default (state = initialState, action) => {
       addedCryptos: action.payload,
     };
   } else if (action.type === UPDATE_CURRENCIES) {
+    const currencies = state.addedCryptos;
+    const updateList = (curr, updatedCurrencies) => {
+      curr.forEach(elem => updateData(elem, updatedCurrencies));
+    };
+    const updateData = (object, array) => {
+      const newObject = array.filter(item => item.id === object.Asset.id);
+      object.market_data = newObject[0].metrics.market_data;
+    };
+    updateList(currencies, action.payload);
     return {
       ...state,
-      addedCryptos: action.payload,
+      addedCryptos: currencies,
     };
   } else {
     return state;
