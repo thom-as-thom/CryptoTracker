@@ -36,28 +36,26 @@ export const deleteCrypto: Function = (Key, Cryptos) => {
   };
 };
 
-export const updateCurrencies: Function = Cryptos => {
-  const getUpdatedCurrencies = async () => {
+export const updateCurrencies: Function = () => {
+  return async dispatch => {
     const resp = await fetch(
       'https://data.messari.io/api/v2/assets?fields=id,metrics/market_data',
     );
     const ResJson = await resp.json();
-    return await ResJson.data;
-  };
-
-  const updateList = async currencies => {
-    const updatedCurrencies = await getUpdatedCurrencies();
-    currencies.forEach(elem => updateData(elem, updatedCurrencies));
-    console.log('asd');
-  };
-
-  const updateData = async (object, array) => {
-    const newObject = array.filter(item => item.id === object.Asset.id);
-    object.market_data = newObject[0].metrics.market_data;
-  };
-
-  updateList(Cryptos);
-  return dispatch => {
-    dispatch({type: UPDATE_CURRENCIES, payload: Cryptos});
+    dispatch({type: UPDATE_CURRENCIES, payload: ResJson.data});
   };
 };
+
+// const NewList = Cryptos;
+// const updateList = async currencies => {
+//   const updatedCurrencies = await getUpdatedCurrencies();
+//   currencies.forEach(elem => updateData(elem, updatedCurrencies));
+//   console.log('asd');
+// };
+
+// const updateData = async (object, array) => {
+//   const newObject = array.filter(item => item.id === object.Asset.id);
+//   object.market_data = newObject[0].metrics.market_data;
+// };
+
+// updateList(NewList);
