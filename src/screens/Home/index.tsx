@@ -18,11 +18,13 @@ const Home = ({navigation}): JSX.Element => {
     navigation.navigate('ADD_CRYPTO');
   };
   const update: Function = () => {
-    dispatch(updateCurrencies());
-    console.log(Cryptos[0].market_data.price_usd);
+    if (Cryptos.length > 0) {
+      dispatch(updateCurrencies());
+      console.log(Cryptos[0].market_data.price_usd);
+    }
   };
   useEffect(() => {
-    const intervalId = setInterval(() => update(), 10000);
+    const intervalId = setInterval(() => update(), 3000);
     return () => {
       clearInterval(intervalId);
     };
