@@ -18,16 +18,26 @@ export default (state = initialState, action) => {
   } else if (action.type === UPDATE_CURRENCIES) {
     const currencies = state.addedCryptos;
     const updateList = (curr, updatedCurrencies) => {
-      curr.forEach(elem => updateData(elem, updatedCurrencies));
+      const newList = curr.map(elem => updateData(elem, updatedCurrencies));
+      return newList;
     };
     const updateData = (object, array) => {
-      const newObject = array.filter(item => item.id === object.Asset.id);
-      object.market_data = newObject[0].metrics.market_data;
+      const sameCoin = array.filter(item => item.id === object.Asset.id);
+      console.log(sameCoin);
+      if (sameCoin.length !== 0) {
+        const crypto = {
+          Asset: object.Asset,
+          market_data: sameCoin[0].metrics.market_data,
+        };
+        return crypto;
+      } else {
+        return object;
+      }
     };
-    updateList(currencies, action.payload);
+    const updatedList = updateList(currencies, action.payload);
     return {
       ...state,
-      addedCryptos: currencies,
+      addedCryptos: updatedList,
     };
   } else {
     return state;
