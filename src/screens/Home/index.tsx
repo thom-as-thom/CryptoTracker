@@ -20,7 +20,6 @@ const Home = ({navigation}): JSX.Element => {
   const update: Function = () => {
     if (Cryptos.length > 0) {
       dispatch(updateCurrencies());
-      console.log(Cryptos[0].market_data.price_usd);
     }
   };
   useEffect(() => {
