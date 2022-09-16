@@ -23,7 +23,6 @@ export default (state = initialState, action) => {
     };
     const updateData = (object, array) => {
       const sameCoin = array.filter(item => item.id === object.Asset.id);
-      console.log(sameCoin);
       if (sameCoin.length !== 0) {
         const crypto = {
           Asset: object.Asset,
