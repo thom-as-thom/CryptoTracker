@@ -18,7 +18,7 @@ const Home = ({navigation}): JSX.Element => {
   const onClick = () => {
     navigation.navigate('ADD_CRYPTO');
   };
-  const update: Function = () => {
+  const update = () => {
     if (Cryptos.length > 0) {
       dispatch(updateCurrencies());
       console.log(Cryptos[0].market_data.price_usd);
