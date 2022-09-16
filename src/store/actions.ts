@@ -42,19 +42,6 @@ export const updateCurrencies: Function = () => {
       'https://data.messari.io/api/v2/assets?fields=id,metrics/market_data',
     );
     const ResJson = await resp.json();
-    // const NewList = Cryptos;
-    // const updateList = async currencies => {
-    //   const updatedCurrencies = await getUpdatedCurrencies();
-    //   currencies.forEach(elem => updateData(elem, updatedCurrencies));
-    //   console.log('asd');
-    // };
-
-    // const updateData = async (object, array) => {
-    //   const newObject = array.filter(item => item.id === object.Asset.id);
-    //   object.market_data = newObject[0].metrics.market_data;
-    // };
-
-    // updateList(NewList);
     dispatch({type: UPDATE_CURRENCIES, payload: ResJson.data});
   };
 };
