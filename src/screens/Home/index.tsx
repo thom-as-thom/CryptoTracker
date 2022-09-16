@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, SafeAreaView, Text, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import Button from '../../components/Button';
@@ -18,10 +18,16 @@ const Home = ({navigation}): JSX.Element => {
   const onClick = () => {
     navigation.navigate('ADD_CRYPTO');
   };
-  const update = () => {
+  const update: Function = () => {
     dispatch(updateCurrencies());
     console.log(Cryptos[0].market_data.price_usd);
   };
+  useEffect(() => {
+    const intervalId = setInterval(() => update(), 10000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <SafeAreaView>
@@ -37,9 +43,6 @@ const Home = ({navigation}): JSX.Element => {
           />
         }
       />
-      <TouchableOpacity onPress={update}>
-        <Text>Update</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   );
 };
