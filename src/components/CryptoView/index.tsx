@@ -14,13 +14,13 @@ import {
   ChangePercentage,
 } from './styles';
 import {deleteCrypto} from '../../store/actions';
-import {useDispatch, useSelector} from 'react-redux';
 import {IRootState} from '../../store';
+import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
 
 const Cryptoview = (props): JSX.Element => {
   const coin: CoinData = props.coin;
-  const dispatch = useDispatch();
-  const Cryptos: CoinData = useSelector(
+  const dispatch = useAppDispatch();
+  const Cryptos: CoinData = useAppSelector(
     (state: IRootState) => state.addedCryptos.addedCryptos,
   );
   const deleteCoin = () => {
