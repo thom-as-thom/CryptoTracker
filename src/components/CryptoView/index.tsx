@@ -2,7 +2,6 @@ import React from 'react';
 import {Alert, Pressable, Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import {CoinData} from '../../types';
 import {
   CryptoContainer,
@@ -12,10 +11,13 @@ import {
   StatsView,
   Change,
   ChangePercentage,
+  Arrow,
 } from './styles';
 import {deleteCrypto} from '../../store/actions';
 import {IRootState} from '../../store';
 import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
+import callMade from '../../assets/call_made_green_24dp.png';
+import callRecieved from '../../assets/call_received_red_24dp.png';
 
 const Cryptoview = (props): JSX.Element => {
   const coin: CoinData = props.coin;

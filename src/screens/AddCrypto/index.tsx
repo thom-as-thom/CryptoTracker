@@ -1,11 +1,9 @@
 import React from 'react';
 import Button from '../../components/Button';
 import {Form, Input, Navigation, ScreenView, Title} from './styles';
-import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {addCrypto} from '../../store/actions';
 import theme from '../../theme';
-import {IRootState} from '../../store';
 import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
 
 export const AddCurrency = ({navigation}): JSX.Element => {

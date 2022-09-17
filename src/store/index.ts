@@ -6,4 +6,5 @@ const rootReducer = combineReducers({addedCryptos: reducers});
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 export type IRootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
 export default store;
