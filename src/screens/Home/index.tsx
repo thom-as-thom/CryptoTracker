@@ -6,6 +6,7 @@ import Cryptoview from '../../components/CryptoView';
 import Header from '../../components/Header';
 import {IRootState} from '../../store';
 import {CoinData} from '../../types';
+import {Container} from './styles';
 
 const Home = ({navigation}): JSX.Element => {
   const Cryptos = useSelector(
@@ -19,8 +20,7 @@ const Home = ({navigation}): JSX.Element => {
 
   return (
     <SafeAreaView>
-      <FlatList
-        ListHeaderComponent={<Header />}
+      <Container
         data={Cryptos}
         keyExtractor={item => item.Asset.id}
         renderItem={renderItem}
