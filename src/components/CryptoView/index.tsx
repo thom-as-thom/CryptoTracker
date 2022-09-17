@@ -54,19 +54,6 @@ const Cryptoview = (props): JSX.Element => {
         <StatsView>
           <Bold> ${coin.market_data.price_usd.toFixed(2)} </Bold>
           <Change>
-            {coin.market_data.percent_change_usd_last_24_hours > 0 ? (
-              <MaterialIcon
-                name="call-made"
-                size={18}
-                color={theme.colors.green}
-              />
-            ) : (
-              <MaterialIcon
-                name="call-received"
-                size={18}
-                color={theme.colors.red}
-              />
-            )}
             <ChangePercentage
               inputColor={
                 coin.market_data.percent_change_usd_last_24_hours > 0

@@ -24,7 +24,7 @@ const Home = ({navigation}): JSX.Element => {
     }
   };
   useEffect(() => {
-    const intervalId = setInterval(() => update(), 5000);
+    const intervalId = setInterval(() => update(), 2000);
     return () => {
       clearInterval(intervalId);
     };
