@@ -35,7 +35,20 @@ const Cryptoview = (props): JSX.Element => {
         },
         {
           text: 'OK',
-          onPress: () => dispatch(deleteCrypto(coin.Asset.id, Cryptos)),
+          onPress: () =>
+            Alert.alert(
+              'Deleting currency',
+              `are you sure you want to delete ${coin.Asset.name}?`,
+              [
+                {
+                  text: 'Cancel',
+                },
+                {
+                  text: 'OK',
+                  onPress: () => dispatch(deleteCrypto(coin.Asset.id, Cryptos)),
+                },
+              ],
+            ),
         },
       ],
     );
@@ -56,6 +69,11 @@ const Cryptoview = (props): JSX.Element => {
         <StatsView>
           <Bold> ${coin.market_data.price_usd.toFixed(2)} </Bold>
           <Change>
+            {coin.market_data.percent_change_usd_last_24_hours > 0 ? (
+              <Arrow source={callMade} />
+            ) : (
+              <Arrow source={callRecieved} />
+            )}
             <ChangePercentage
               inputColor={
                 coin.market_data.percent_change_usd_last_24_hours > 0
