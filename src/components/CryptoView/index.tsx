@@ -35,7 +35,20 @@ const Cryptoview = (props): JSX.Element => {
         },
         {
           text: 'OK',
-          onPress: () => dispatch(deleteCrypto(coin.Asset.id, Cryptos)),
+          onPress: () =>
+            Alert.alert(
+              'Deleting currency',
+              `are you sure you want to delete ${coin.Asset.name}?`,
+              [
+                {
+                  text: 'Cancel',
+                },
+                {
+                  text: 'OK',
+                  onPress: () => dispatch(deleteCrypto(coin.Asset.id, Cryptos)),
+                },
+              ],
+            ),
         },
       ],
     );
