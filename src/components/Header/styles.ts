@@ -5,7 +5,6 @@ import theme from '../../theme';
 export const Container = styled.View`
   padding-vertical: 18px;
   padding-horizontal: 35px;
-
   background-color: ${theme.colors.blue};
   margin-bottom: 10px;
   margin-left: -64px;
