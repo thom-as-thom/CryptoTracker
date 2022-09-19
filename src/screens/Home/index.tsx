@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
-import {FlatList, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import Button from '../../components/Button';
 import Cryptoview from '../../components/CryptoView';
-import Header from '../../components/Header';
 import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
 import {IRootState} from '../../store';
 import {updateCurrencies} from '../../store/actions';
