@@ -2,7 +2,6 @@ import React from 'react';
 import {Alert, Pressable, Text} from 'react-native';
 import TinyImage from '../TinyImage';
 import theme from '../../theme';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import {CoinData} from '../../types';
 import {
   CryptoContainer,
@@ -12,15 +11,18 @@ import {
   StatsView,
   Change,
   ChangePercentage,
+  Arrow,
 } from './styles';
 import {deleteCrypto} from '../../store/actions';
-import {useDispatch, useSelector} from 'react-redux';
 import {IRootState} from '../../store';
+import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
+import callMade from '../../assets/call_made_green_24dp.png';
+import callRecieved from '../../assets/call_received_red_24dp.png';
 
 const Cryptoview = (props): JSX.Element => {
   const coin: CoinData = props.coin;
-  const dispatch = useDispatch();
-  const Cryptos: CoinData = useSelector(
+  const dispatch = useAppDispatch();
+  const Cryptos: CoinData = useAppSelector(
     (state: IRootState) => state.addedCryptos.addedCryptos,
   );
   const deleteCoin = () => {
@@ -38,6 +40,7 @@ const Cryptoview = (props): JSX.Element => {
       ],
     );
   };
+
   return (
     <Pressable onPress={deleteCoin}>
       <CryptoContainer>
@@ -54,17 +57,9 @@ const Cryptoview = (props): JSX.Element => {
           <Bold> ${coin.market_data.price_usd.toFixed(2)} </Bold>
           <Change>
             {coin.market_data.percent_change_usd_last_24_hours > 0 ? (
-              <MaterialIcon
-                name="call-made"
-                size={18}
-                color={theme.colors.green}
-              />
+              <Arrow source={callMade} />
             ) : (
-              <MaterialIcon
-                name="call-received"
-                size={18}
-                color={theme.colors.red}
-              />
+              <Arrow source={callRecieved} />
             )}
             <ChangePercentage
               inputColor={

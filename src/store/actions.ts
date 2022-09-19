@@ -2,6 +2,7 @@ import {Alert} from 'react-native';
 
 export const ADD_CRYPTO = 'ADD_CRYPTO';
 export const DELETE_CRYPTO = 'DELETE_CRYPTO';
+export const UPDATE_CURRENCIES = 'UPDATE_CURRENCIES';
 
 export const addCrypto: Function = (Key, addedCryptos) => {
   return async dispatch => {
@@ -32,5 +33,15 @@ export const deleteCrypto: Function = (Key, Cryptos) => {
   const NewList = Cryptos.filter(item => item.Asset.id !== Key);
   return dispatch => {
     dispatch({type: DELETE_CRYPTO, payload: NewList});
+  };
+};
+
+export const updateCurrencies: Function = () => {
+  return async dispatch => {
+    const resp = await fetch(
+      'https://data.messari.io/api/v2/assets?fields=id,metrics/market_data',
+    );
+    const ResJson = await resp.json();
+    dispatch({type: UPDATE_CURRENCIES, payload: ResJson.data});
   };
 };

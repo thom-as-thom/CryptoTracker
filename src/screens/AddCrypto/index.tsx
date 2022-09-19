@@ -1,15 +1,14 @@
 import React from 'react';
 import Button from '../../components/Button';
 import {Form, Input, Navigation, ScreenView, Title} from './styles';
-import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {addCrypto} from '../../store/actions';
 import theme from '../../theme';
-import {IRootState} from '../../store';
+import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
 
 export const AddCurrency = ({navigation}): JSX.Element => {
-  const dispatch = useDispatch();
-  const {addedCryptos} = useSelector((state: IRootState) => state.addedCryptos);
+  const dispatch = useAppDispatch();
+  const {addedCryptos} = useAppSelector(state => state.addedCryptos);
   const [search, setSearch] = useState('');
   const [focus, setFocus] = useState(false);
   const onNavigation = () => {
