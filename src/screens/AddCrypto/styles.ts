@@ -1,3 +1,4 @@
+import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 import theme from '../../theme';
 
@@ -26,6 +27,7 @@ export const Navigation = styled.View`
   justify-self: center;
   height: 57%;
   margin: -5%;
+  margin-top: ${Platform.OS === 'ios' ? '5%' : '-5%'};
 `;
 
 export const Form = styled.View`

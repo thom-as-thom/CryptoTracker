@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
-import {FlatList, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import Button from '../../components/Button';
 import Cryptoview from '../../components/CryptoView';
-import Header from '../../components/Header';
 import {useAppDispatch, useAppSelector} from '../../hooks/hooks';
 import {IRootState} from '../../store';
 import {updateCurrencies} from '../../store/actions';
 import {CoinData} from '../../types';
+import {Container} from './styles';
 
 const Home = ({navigation}): JSX.Element => {
   const Cryptos = useAppSelector(
@@ -23,7 +23,7 @@ const Home = ({navigation}): JSX.Element => {
     }
   };
   useEffect(() => {
-    const intervalId = setInterval(() => update(), 5000);
+    const intervalId = setInterval(() => update(), 2000);
     return () => {
       clearInterval(intervalId);
     };
@@ -31,8 +31,7 @@ const Home = ({navigation}): JSX.Element => {
 
   return (
     <SafeAreaView>
-      <FlatList
-        ListHeaderComponent={<Header />}
+      <Container
         data={Cryptos}
         keyExtractor={item => item.Asset.id}
         renderItem={renderItem}
