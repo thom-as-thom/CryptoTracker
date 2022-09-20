@@ -1,4 +1,4 @@
-# TCryptotracker Pro
+# Cryptotracker Pro
 
 Cryptocurrency exchange rate tracker
 
