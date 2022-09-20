@@ -12,10 +12,10 @@ The app consists of two screens, the list of cryptocurrencies and the "add a cry
 
 This project was built using:
 
-**React Native**
-**Redux**
-**Typescript**
-**Styled Components**
+React Native
+Redux
+Typescript
+Styled Components
 
 ### Media
 
